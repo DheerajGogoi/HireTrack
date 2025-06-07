@@ -1,0 +1,45 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+*.out
+*.pid
+
+# Build directories
+dist/
+build/
+
+# Environment files
+.env
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+# docker-compose.override.yml
+
+# IDEs
+.vscode/
+.idea/
+
+# Coverage reports
+coverage/
+
+# Others
+*.tgz
+*.lock-wscript
+
+# Ignore node_modules in all services
+services/**/node_modules/
+services/**/dist/
+services/**/.env
+
+# Optional: ignore Docker volumes or other runtime artifacts
+docker-data/

@@ -1,0 +1,64 @@
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - docker_mongo_data:/data/db
+  mongo-express:
+    image: mongo-express
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+  # user:
+  #   build:
+  #     context: ./user-service
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "5001:5001"
+  #   restart: always
+  #   depends_on:
+  #     - mongodb
+  #   environment:
+  #     - NODE_ENV=production
+  # application:
+  #   build:
+  #     context: ./application-service
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "5002:5002"
+  #   restart: always
+  #   depends_on:
+  #     - mongodb
+  #   environment:
+  #     - NODE_ENV=production
+  # key:
+  #   build:
+  #     context: ./ai-service
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "5003:5003"
+  #   restart: always
+  #   depends_on:
+  #     - mongodb
+  #   environment:
+  #     - NODE_ENV=production
+  # nginx:
+  #   build:
+  #     context: ./nginx
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "85:85"
+  #   depends_on:
+  #     - user
+  #     - application
+  #     - key
+volumes:
+  docker_mongo_data:
+    driver: local

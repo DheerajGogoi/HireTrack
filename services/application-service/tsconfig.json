@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",                     // Use a more modern JS target
+        "module": "CommonJS",
+        "outDir": "./build",
+        "rootDir": "./src",                    // Ensures source code is from `src`
+        "strict": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitAny": true,
+        "moduleResolution": "node",            // Recommended for Node.js
+        "resolveJsonModule": true,             // Allows importing JSON configs
+        "sourceMap": true,                     // Enables debugging with source maps
+        "types": ["node"],                     // Gets Node.js type definitions
+        "skipLibCheck": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "tests"]
+}
+  
